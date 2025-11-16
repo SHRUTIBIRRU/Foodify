@@ -1,0 +1,26 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "React project",
+
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SHRUTIBIRRU/React-New.git"
+  },
+  "author": "Shruti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SHRUTIBIRRU/React-New/issues"
+  },
+  "homepage": "https://github.com/SHRUTIBIRRU/React-New#readme",
+  "devDependencies": {
+    "parcel": "^2.16.1"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}

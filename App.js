@@ -1,5 +1,6 @@
 //create the h1 tag in React => we've put it in Dom => render
-
+import React from "react";
+import ReactDOM from "react-dom/client";
 const heading = React.createElement(
   "h1",
   { id: "heading" },
