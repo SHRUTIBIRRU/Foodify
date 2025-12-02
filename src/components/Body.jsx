@@ -14,13 +14,12 @@ const Body = () => {
   const fetchData = async () => {
     try {
       const res = await fetch(
-        "https://corsproxy.io/https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5288974&lng=73.8665321&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        "https://corsproxy.io/https://namastedev.com/api/v1/listRestaurants"
       );
       const jsonData = await res.json();
       const resData =
-        jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        jsonData?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
-      console.log(resData);
       setListOfRestaurants(resData);
       setFilteredRestaurants(resData);
     } catch (err) {}
@@ -43,7 +42,7 @@ const Body = () => {
             const filteredRestaurant = listOfRestaurants.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
             );
-            filteredRestaurants(filteredRestaurant);
+            setFilteredRestaurants(filteredRestaurant);
           }}
         >
           Search
@@ -54,7 +53,7 @@ const Body = () => {
             const filteredList = listOfRestaurants.filter(
               (res) => res?.info?.avgRating > 4.5
             );
-            filteredRestaurants(filteredList);
+            setFilteredRestaurants(filteredList);
           }}
         >
           Top rated restuarants
