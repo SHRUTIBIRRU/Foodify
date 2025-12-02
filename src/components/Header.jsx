@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [btnName, setBtnName] = useState("Login");
+
+  useEffect(() => {
+    console.log("UseEffect  be called");
+  }, []);
   return (
     <div className="navbar">
       <div className="app-icon-container">
@@ -10,10 +16,26 @@ const Header = () => {
         />
       </div>
       <div className="navbar-right">
-        <div>Home </div>
-        <div>About </div>
-        <div>Cart </div>
-        <button className="login-btn">Login </button>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/contact-us">Contact Us</Link>
+        </li>
+        <li>
+          <Link>Cart</Link>
+        </li>
+        <button
+          onClick={() => {
+            setBtnName((prev) => (prev === "Login" ? "Logout" : "Login"));
+          }}
+          className="login-btn"
+        >
+          {btnName}
+        </button>
       </div>
     </div>
   );

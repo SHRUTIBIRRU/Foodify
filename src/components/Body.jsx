@@ -43,7 +43,7 @@ const Body = () => {
             const filteredRestaurant = listOfRestaurants.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
             );
-            setListOfRestaurants(filteredRestaurant);
+            filteredRestaurants(filteredRestaurant);
           }}
         >
           Search
@@ -54,7 +54,7 @@ const Body = () => {
             const filteredList = listOfRestaurants.filter(
               (res) => res?.info?.avgRating > 4.5
             );
-            setListOfRestaurants(filteredList);
+            filteredRestaurants(filteredList);
           }}
         >
           Top rated restuarants
@@ -62,7 +62,7 @@ const Body = () => {
       </div>
 
       <div className="card-container">
-        {listOfRestaurants?.map((restaurant, index) => (
+        {filteredRestaurants?.map((restaurant, index) => (
           <RestroCard key={index} data={restaurant} />
         ))}
       </div>

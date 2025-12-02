@@ -17,9 +17,12 @@
 .navbar-right {
   display: flex;
   justify-content: space-evenly;
-  width: 250px;
+  width: 400px;
   padding: 40px 10px;
   font-size: 20px;
+}
+.navbar-right > li {
+  list-style: none;
 }
 
 .card-container :hover {
