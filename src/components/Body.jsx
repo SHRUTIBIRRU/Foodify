@@ -1,11 +1,14 @@
 import RestroCard from "./RestroCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "./useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
@@ -24,6 +27,8 @@ const Body = () => {
       setFilteredRestaurants(resData);
     } catch (err) {}
   };
+  if (!onlineStatus)
+    return <h1>Looks like you're offline. Please connect after sometime!</h1>;
 
   return listOfRestaurants?.length === 0 ? (
     <Shimmer />

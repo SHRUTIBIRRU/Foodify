@@ -14,15 +14,16 @@
   padding: 10;
 }
 
-.navbar-right {
+.navbar-items {
   display: flex;
   justify-content: space-evenly;
-  width: 400px;
+
   padding: 40px 10px;
   font-size: 20px;
 }
-.navbar-right > li {
+.navbar-items > li {
   list-style: none;
+  padding: 10px;
 }
 
 .card-container :hover {
