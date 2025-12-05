@@ -5,10 +5,10 @@ const RestroCard = (props) => {
     props.data.info;
 
   return (
-    <div className="restroCard">
+    <div className="flex w-60 bg-gray-100 hover:bg-gray-200 justify-center p-2 rounded-xl ">
       <Link to={"/restaurants/" + id}>
         <img
-          className="restroCard-img"
+          className="h-50 w-50 rounded-xl"
           src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
         />
         <h3>{name}</h3>

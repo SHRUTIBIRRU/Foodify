@@ -34,8 +34,9 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="filter">
+      <div className="flex m-4 gap-3">
         <input
+          className="p-2 border rounded-lg border-green-300"
           type="text"
           value={searchText}
           onChange={(e) => {
@@ -43,6 +44,7 @@ const Body = () => {
           }}
         />
         <button
+          className=" p-2 bg-green-300 rounded-lg cursor-pointer"
           onClick={() => {
             const filteredRestaurant = listOfRestaurants.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -53,7 +55,7 @@ const Body = () => {
           Search
         </button>{" "}
         <button
-          className="top-res-btn"
+          className="p-2 border rounded-lg border-green-300 text-green-500 cursor-pointer"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
               (res) => res?.info?.avgRating > 4.5
@@ -65,7 +67,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="card-container">
+      <div className="flex flex-wrap gap-2">
         {filteredRestaurants?.map((restaurant, index) => (
           <RestroCard key={index} data={restaurant} />
         ))}

@@ -7,35 +7,39 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="navbar">
-      <div className="app-icon-container">
+    <div className="flex h-25 justify-between align-baseline bg-gray-100 drop-shadow-lg">
+      <div className="p-2">
         <img
-          className="app-icon"
+          className="w-20 pt-1"
           src="https://cdn-icons-png.flaticon.com/512/3595/3595125.png"
         />
       </div>
-      <div className="navbar-items">
-        <li>
+      <div className="flex justify-evenly list-none p-4 m-4">
+        <li className="px-3 cursor-pointer text-lg font-semibold">
           <Link to="/">Home</Link>
         </li>
-        <li>
+        <li className="px-3 cursor-pointer text-lg font-semibold">
           <Link to="/about">About</Link>
         </li>
-        <li>
+        <li className="px-3 cursor-pointer text-lg font-semibold">
           <Link to="/contact-us">Contact Us</Link>
         </li>
-        <li>
+        <li className="px-3 cursor-pointer text-lg font-semibold">
           <Link>Cart</Link>
         </li>
-        <li>Online Status: {onlineStatus ? "✅" : "❌"}</li>
-        <button
-          onClick={() => {
-            setBtnName((prev) => (prev === "Login" ? "Logout" : "Login"));
-          }}
-          className="login-btn"
-        >
-          {btnName}
-        </button>
+        <li className="px-3 cursor-pointer text-lg font-semibold">
+          Online Status: {onlineStatus ? "✅" : "❌"}
+        </li>
+        <li className="px-3 text-lg font-semibold">
+          <button
+            className="bg-gray-500 cursor-pointer  px-3 py-1.5 rounded-lg text-white"
+            onClick={() => {
+              setBtnName((prev) => (prev === "Login" ? "Logout" : "Login"));
+            }}
+          >
+            {btnName}
+          </button>
+        </li>
       </div>
     </div>
   );
