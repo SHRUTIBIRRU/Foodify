@@ -1,4 +1,4 @@
-import RestroCard from "./RestroCard";
+import RestroCard, { WithBadges } from "./RestroCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "./useOnlineStatus";
@@ -9,6 +9,8 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   const onlineStatus = useOnlineStatus();
+
+  const RestroCardWithBadges = WithBadges(RestroCard);
 
   useEffect(() => {
     fetchData();
@@ -67,10 +69,14 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        {filteredRestaurants?.map((restaurant, index) => (
-          <RestroCard key={index} data={restaurant} />
-        ))}
+      <div className="flex flex-wrap justify-center gap-3">
+        {filteredRestaurants?.map((restaurant, index) =>
+          index > 2 ? (
+            <RestroCardWithBadges key={index} data={restaurant} />
+          ) : (
+            <RestroCard key={index} data={restaurant} />
+          )
+        )}
       </div>
     </>
   );
