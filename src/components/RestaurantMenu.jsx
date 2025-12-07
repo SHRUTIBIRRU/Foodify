@@ -1,35 +1,34 @@
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "./useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resData = useRestaurantMenu(resId);
+  const [showItem, setShowItem] = useState(0);
 
   if (resData === null) return <Shimmer />;
 
+  const categories = resData.filter(
+    (item) =>
+      item?.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+
   return (
     <div>
-      {resData.length > 0 &&
-        resData[1]?.card?.card?.itemCards.map(
-          ({
-            card: {
-              info: { id, name, imageId, price, defaultPrice, description },
-            },
-          }) => (
-            <div key={id}>
-              <h1>{name}</h1>
-              <img
-                className="restroCard-img"
-                src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${imageId}`}
-              />
-
-              <h3>Rs {price / 100 || defaultPrice / 100}</h3>
-
-              <p>{description}</p>
-            </div>
-          )
-        )}
+      {categories.length > 0 &&
+        categories.map((category, index) => (
+          <RestaurantCategory
+            key={index}
+            data={category?.card?.card}
+            showItem={showItem === index ? true : false}
+            setShowItem={setShowItem}
+            handleItemClick={() => setShowItem(index)}
+          />
+        ))}
     </div>
   );
 };
