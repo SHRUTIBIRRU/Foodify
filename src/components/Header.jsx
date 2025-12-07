@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "./useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <div className="flex h-25 justify-between align-baseline bg-gray-100 drop-shadow-lg">
@@ -29,6 +31,9 @@ const Header = () => {
         </li>
         <li className="px-3 cursor-pointer text-lg font-semibold">
           Online Status: {onlineStatus ? "✅" : "❌"}
+        </li>
+        <li className="px-3 cursor-pointer text-lg font-bold">
+          Hello, {loggedInUser}
         </li>
         <li className="px-3 text-lg font-semibold">
           <button

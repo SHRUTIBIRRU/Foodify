@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -7,12 +7,22 @@ import About from "./src/components/About";
 import Error from "./src/components/Error";
 import Contact from "./src/components/Contact";
 import RestaurantMenu from "./src/components/RestaurantMenu";
+import UserContext from "./src/utils/UserContext";
 
 //create the h1 tag in React => we've put it in Dom => render
+
 const App = () => {
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    const data = { name: "John Doe" };
+    setUserName(data.name);
+  }, []);
   return (
     <>
-      <Header />
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <Header />
+      </UserContext.Provider>
       <Outlet />
     </>
   );
