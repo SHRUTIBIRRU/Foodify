@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "./useOnlineStatus";
+import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
+  const cart = useSelector((state) => state.cart.item);
 
   return (
     <div className="flex h-25 justify-between align-baseline bg-gray-100 drop-shadow-lg">
@@ -26,15 +28,13 @@ const Header = () => {
         <li className="px-3 cursor-pointer text-lg font-semibold">
           <Link to="/contact-us">Contact Us</Link>
         </li>
-        <li className="px-3 cursor-pointer text-lg font-semibold">
-          <Link>Cart</Link>
+        <li className="px-3 cursor-pointer text-lg font-bold">
+          <Link to="/cart">Cart {cart.length > 0 && `${cart.length}`}</Link>
         </li>
-        <li className="px-3 cursor-pointer text-lg font-semibold">
+        <li className="px-3 text-lg font-semibold">
           Online Status: {onlineStatus ? "✅" : "❌"}
         </li>
-        <li className="px-3 cursor-pointer text-lg font-bold">
-          Hello, {loggedInUser}
-        </li>
+        <li className="px-3 text-lg font-bold">Hello, {loggedInUser}</li>
         <li className="px-3 text-lg font-semibold">
           <button
             className="bg-gray-500 cursor-pointer  px-3 py-1.5 rounded-lg text-white"

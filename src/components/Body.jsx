@@ -1,7 +1,7 @@
 import RestroCard, { WithBadges } from "./RestroCard";
 import { useEffect, useState } from "react";
-import Shimmer from "./Shimmer";
-import useOnlineStatus from "./useOnlineStatus";
+import Shimmer from "../utils/Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);

@@ -8,6 +8,9 @@ import Error from "./src/components/Error";
 import Contact from "./src/components/Contact";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import UserContext from "./src/utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./src/utils/appStore";
+import Cart from "./src/components/Cart";
 
 //create the h1 tag in React => we've put it in Dom => render
 
@@ -20,10 +23,12 @@ const App = () => {
   }, []);
   return (
     <>
-      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-        <Header />
-      </UserContext.Provider>
-      <Outlet />
+      <Provider store={appStore}>
+        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+          <Header />
+          <Outlet />
+        </UserContext.Provider>
+      </Provider>
     </>
   );
 };
@@ -38,6 +43,7 @@ const appRouter = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/contact-us", element: <Contact /> },
       { path: "/restaurants/:resId", element: <RestaurantMenu /> },
+      { path: "/cart", element: <Cart /> },
     ],
   },
 ]);
