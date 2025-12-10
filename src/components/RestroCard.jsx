@@ -6,6 +6,7 @@ const RestroCard = (props, enableHover = true) => {
 
   return (
     <div
+      data-testid="restroCard"
       className={`flex w-80 bg-gray-100 hover:bg-gray-200 justify-center p-2 rounded-xl shadow-xl transition-transform duration-300 hover:scale-105`}
     >
       <Link to={"/restaurants/" + id}>

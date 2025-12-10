@@ -29,7 +29,7 @@ const Header = () => {
           <Link to="/contact-us">Contact Us</Link>
         </li>
         <li className="px-3 cursor-pointer text-lg font-bold">
-          <Link to="/cart">Cart {cart.length > 0 && `${cart.length}`}</Link>
+          <Link to="/cart">Cart {cart.length}</Link>
         </li>
         <li className="px-3 text-lg font-semibold">
           Online Status: {onlineStatus ? "✅" : "❌"}

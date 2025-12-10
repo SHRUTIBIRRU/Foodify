@@ -25,6 +25,7 @@ const Body = () => {
       const resData =
         jsonData?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
+      // console.log("resData", resData);
       setListOfRestaurants(resData);
       setFilteredRestaurants(resData);
     } catch (err) {}
@@ -38,6 +39,7 @@ const Body = () => {
     <>
       <div className="flex m-4 gap-3">
         <input
+          data-testid="searchInput"
           className="p-2 border rounded-lg border-green-300"
           type="text"
           value={searchText}
@@ -46,20 +48,22 @@ const Body = () => {
           }}
         />
         <button
+          data-testid="search-btn"
           className=" p-2 bg-green-300 rounded-lg cursor-pointer"
           onClick={() => {
-            const filteredRestaurant = listOfRestaurants.filter((res) =>
+            const filteredRestaurant = listOfRestaurants?.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
             );
             setFilteredRestaurants(filteredRestaurant);
           }}
         >
           Search
-        </button>{" "}
+        </button>
         <button
+          data-testid="topRatedResBtn"
           className="p-2 border rounded-lg border-green-300 text-green-500 cursor-pointer"
           onClick={() => {
-            const filteredList = listOfRestaurants.filter(
+            const filteredList = listOfRestaurants?.filter(
               (res) => res?.info?.avgRating > 4.5
             );
             setFilteredRestaurants(filteredList);
