@@ -21,7 +21,7 @@ const RestaurantMenu = () => {
   const { name, costForTwo } = resData?.data?.cards[2]?.card?.card?.info;
   return (
     <div>
-      <div className="flex justify-center p-4">
+      <div data-testid="restaurantMenu" className="flex justify-center p-4">
         <h2 className="font-bold text-2xl">
           {name} - {costForTwo}
         </h2>

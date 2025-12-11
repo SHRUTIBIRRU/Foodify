@@ -19,6 +19,7 @@ const RestaurantCategory = (props) => {
   return (
     <div className="w-9/12 mx-auto p-4 my-4 drop-shadow-lg bg-gray-100">
       <div
+        data-testid="resCategory"
         className="flex justify-between py-2 cursor-pointer"
         onClick={handleClick}
       >
