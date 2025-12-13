@@ -10,7 +10,7 @@ const Cart = () => {
     dispatch(clearItem());
   };
   return (
-    <div className="w-6/12 mx-auto  p-2 m-2">
+    <div className="w-9/12 mx-auto p-2 my-2">
       <h1 className="text-2xl text-center font-bold">Cart</h1>
 
       {cartItems.length === 0 ? (

@@ -26,7 +26,9 @@ const App = () => {
       <Provider store={appStore}>
         <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
           <Header />
+          <main className="mt-28">
           <Outlet />
+          </main>
         </UserContext.Provider>
       </Provider>
     </>

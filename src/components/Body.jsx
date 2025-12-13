@@ -38,8 +38,8 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="flex mx-4 mt-30 gap-3">
-        <div className="flex m-2 gap-2">
+      <div className="flex mx-4 gap-3">
+        <div className="flex flex-wrap m-2 gap-2">
           <input
             data-testid="searchInput"
             className="p-2 border rounded-lg border-green-300"
