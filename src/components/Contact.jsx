@@ -13,6 +13,7 @@ const Contact = () => {
         />
         <input
           name="message"
+          placeholder="message"
           className="m-2 p-2 border-2 border-green-300 rounded-lg"
         />
         <button className="m-2 p-2 bg-gray-200 rounded-lg">Submit</button>

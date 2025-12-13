@@ -11,11 +11,11 @@ class About extends React.Component {
 
   render() {
     return (
-      <>
-        <h1>About</h1>
+      <div className="w-2/12 mx-auto">
+        <h1 className="text-2xl">About</h1>
         <h2>This is about us page</h2>
         <UserClass />
-      </>
+      </div>
     );
   }
 }
