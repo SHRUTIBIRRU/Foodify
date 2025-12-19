@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { ShoppingCart, X, Menu } from "lucide-react";
 
 const Header = () => {
-  const [btnName, setBtnName] = useState("Logout");
+  const [btnName, setBtnName] = useState("Login");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { loggedInUser } = useContext(UserContext);
